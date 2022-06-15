@@ -1,4 +1,4 @@
-[//]: # (![](img/logo.svg))
+<!-- ![](img/logo.svg) -->
 # Transplit
 
 **Efficient Energy Demand Forecasting at Scale**
@@ -21,8 +21,8 @@ git clone https://github.com/serval-uni-lu/transplit && cd transplit
 ### Native installation
 
 **Requirements**  
-- Python 3.6+
-- Pytorch 1.10+
+- Python **3.6+**
+- Pytorch **1.10+**
 
 **Optional**  
 - PyTorch installed with a GPU to run it faster ;)
