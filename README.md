@@ -7,6 +7,15 @@ Lightweight model for large scale applications, that achieves the performance of
 
 ## The Transplit Architecture
 
+Transplit is a time series transformer with an additional module
+that allows to shorten the sequence to process, called **SVS** (Slice to Vector to Slice).
+
+The input sequence is split into slices of fixed length (e.g. 24 hours),
+and each slice is transformed into a vector, then representing a single day.
+
+This allows the model to reason in a day-by-day basis, and to be able to process large sequences.
+The outputed vectors are eventually converted back to slices and concatenated to form the final output.
+
 ![](img/model.svg)
 ![](img/svs.svg)
 
