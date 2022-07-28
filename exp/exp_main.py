@@ -276,20 +276,20 @@ class Exp_Main(Exp_Basic):
             os.makedirs(folder_path)
         folder_path += '/'
 
-        mae, mse, rmse, mape, mspe = metric(preds, trues)
-        wmae, wmse, wrmse, wmape, wmspe = metric(preds[:, :168], trues[:, :168])
-        print('mse:{}, mae:{}'.format(mse, mae))
-        print('week mse:{}, week mae:{}'.format(wmse, wmae))
+        mae, mse, rmse, mape, mspe, pmse, pmae = metric(preds, trues)
+        wmae, wmse, wrmse, wmape, wmspe, wpmse, wpmae = metric(preds[:, :168], trues[:, :168])
+        print('mse:{}, mae:{}, pmae:{}'.format(mse, mae, pmae))
+        print('week mse:{}, week mae:{}, week pmae:{}'.format(wmse, wmae, wpmae))
         f = open("result.txt", 'a')
         f.write(setting + "  \n")
-        f.write('mse:{}, mae:{}'.format(mse, mae))
-        f.write('week mse:{}, week mae:{}'.format(wmse, wmae))
+        f.write('mse:{}, mae:{}, pmae:{}'.format(mse, mae, pmae))
+        f.write('week mse:{}, week mae:{}, week pmae:{}'.format(wmse, wmae, wpmae))
         f.write('\n')
         f.write('\n')
         f.close()
 
-        np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe]))
-        np.save(folder_path + 'wmetrics.npy', np.array([wmae, wmse, wrmse, wmape, wmspe]))
+        np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe, pmse, pmae]))
+        np.save(folder_path + 'wmetrics.npy', np.array([wmae, wmse, wrmse, wmape, wmspe, wpmse, wpmae]))
         np.save(folder_path + 'pred.npy', preds)
         np.save(folder_path + 'true.npy', trues)
 
