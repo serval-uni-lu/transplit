@@ -1,4 +1,4 @@
-from data_provider.data_loader import Dataset_Custom, Dataset_Pred
+from data_provider.data_loader import Dataset_Custom
 from torch.utils.data import DataLoader
 
 data_dict = {
@@ -15,12 +15,6 @@ def data_provider(args, flag):
         drop_last = True
         batch_size = args.batch_size
         freq = args.freq
-    elif flag == 'pred':
-        shuffle_flag = False
-        drop_last = False
-        batch_size = 1
-        freq = args.freq
-        Data = Dataset_Pred
     else:
         shuffle_flag = True
         drop_last = True

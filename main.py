@@ -19,7 +19,7 @@ parser.add_argument('--model', type=str, required=True, default='Transplit',
                     help='model name, options: [Transplit, Autoformer, Informer, Reformer, Transformer]')
 
 # data loader
-parser.add_argument('--data', type=str, required=True, default='custom', help='dataset type')
+parser.add_argument('--data', type=str, default='custom', help='dataset type')
 parser.add_argument('--root_path', type=str, default='./datasets/electricity/', help='root path of the data file')
 parser.add_argument('--data_path', type=str, default='electricity.csv', help='data file')
 parser.add_argument('--features', type=str, default='SA',
@@ -107,7 +107,7 @@ print(args)
 
 Exp = Exp_Main
 
-setting_ = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_{}_'.format(
+setting_ = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_'.format(
     args.model_id,
     args.model,
     args.data,

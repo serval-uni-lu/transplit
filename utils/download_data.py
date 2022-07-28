@@ -26,6 +26,8 @@ if __name__ == "__main__":
             freq='1H',
             closed="left"
         ))
+        # renaming the last column to 'OT' (target in case of single variable task)
+        df2.rename(columns={df2.columns[-1]: 'OT'}, inplace=True)
         # saving to csv
         os.makedirs('dataset/electricity', exist_ok=True)
         df2.to_csv('dataset/electricity/electricity.csv', index=False, float_format='%.3f')

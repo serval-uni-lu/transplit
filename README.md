@@ -75,7 +75,7 @@ We recommend to run the experiments via IPython,
 so that you can access the Python environment and debug it.
 So, simply run `ipython`, then:
 ```ipython
-%run run.py --is_training 1 --root_path ./dataset/electricity/ --data_path electricity.csv --model_id ECL_720 --model Autoformer --batch_size 12 --train_epochs 3 --features SA --seq_len 720 --pred_len 720 --e_layers 1 --d_layers 1 --d_model 64 --d_ff 256 --des 'Exp'
+%run main.py --is_training 1 --root_path ./dataset/electricity/ --data_path electricity.csv --model_id ECL_720 --model Transplit --batch_size 12 --train_epochs 3 --features SA --seq_len 720 --pred_len 720 --e_layers 1 --d_layers 1 --period 24 --n_filters 512 --d_model 64 --d_ff 256 --des 'Exp'
 ```
 You can do the same for other models by picking the commands in [`models.sh`](./models.sh).
 
