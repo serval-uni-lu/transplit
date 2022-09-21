@@ -25,11 +25,6 @@ class SVS(nn.Module):
             
         self.embedding = nn.Linear(n_filters * c_in, d_model)
         self.activation = nn.ReLU()
-        
-        self.mha = AttentionLayer(
-            FullAttention(),
-            d_model=24, n_heads=8
-        )
     
     def encode(self, x):
         x = x.transpose(1, 2)
@@ -51,10 +46,6 @@ class SVS(nn.Module):
             W = self.conv_layers[i].weight.squeeze()
             b1, b2 = i*self.n_filters, (i+1)*self.n_filters
             xi = torch.matmul(x[..., b1:b2], W)
-            xi = xi + self.mha(
-                xi, torch.stack(x_input[...,i].split(24, dim=-1), dim=1), xi,
-                attn_mask=None
-            )[0]
             xi = xi.flatten(start_dim=1)
             c.append(xi)
         return torch.stack(c, dim=-1)
